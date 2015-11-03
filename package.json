@@ -1,7 +1,7 @@
 {
   "name": "fis-vue-example",
   "version": "0.1.0",
-  "description": "基于fis构建的vuejs样例（包含vue-router的使用）",
+  "description": "基于fis构建的vuejs事例（包含vue-router的使用）",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
