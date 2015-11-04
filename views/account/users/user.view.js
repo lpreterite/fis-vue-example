@@ -10,17 +10,9 @@ module.exports = {
     },
     route: {
         data: function(){
-            return $.getJSON(config.api() + 'users.php?mode=has')
-                    .then(this.onSuccess)
-                    .fail(this.onError)
-        }
-    },
-    methods: {
-        onSuccess: function(data){
-            return {users: data}
-        },
-        onError: function(e){
-            return {users: []}
+            return {
+                users: $.fetch(config.api() + 'users.php?mode=has')
+            }
         }
     }
 }

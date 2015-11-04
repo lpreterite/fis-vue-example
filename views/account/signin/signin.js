@@ -16,8 +16,7 @@ module.exports = {
     methods: {
         signin: function(e){
             $.save(config.api() + 'signin.php', this.$data.form)
-             .then(this.onSuccess)
-             .fail(this.onError)
+             .then(this.onSuccess,this.onError)
 
             e.preventDefault()
             return false

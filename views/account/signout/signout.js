@@ -4,7 +4,7 @@ var config = require('config'),
 
 module.exports = {
     data: function(){
-        $.getJSON(config.api() + 'signout.php').done(this.signout).fail(this.onError)
+        $.fetch(config.api() + 'signout.php').then(this.signout,this.onError)
     },
     methods: {
         signout: function(){
