@@ -1,15 +1,11 @@
 /**
  * Ajax Setting
  */
-var $ = require('jquery')
-
-$.ajaxSetup({
-    error: function(XMLHttpRequest, textStatus, errorThrown){
-        console.log(XMLHttpRequest)
+var $ = require('jquery'),
+    expired = function(XMLHttpRequest){
         var router = require('config/config.router')
         if(XMLHttpRequest.status == 401) router.go('/account/signout')
     }
-})
 
 $.extend({
     fetch: function(url, data){
@@ -24,8 +20,8 @@ $.extend({
                     return data
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
-                    reject(XMLHttpRequest)
-                    return false
+                    reject()
+                    expired(XMLHttpRequest)
                 }
             })
         })
@@ -46,6 +42,7 @@ $.extend({
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
                     reject(XMLHttpRequest)
+                    expired(XMLHttpRequest)
                 }
             })
         })
@@ -61,6 +58,7 @@ $.extend({
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
                     reject(XMLHttpRequest)
+                    expired(XMLHttpRequest)
                 }
             })
         })

@@ -8,13 +8,13 @@
 module.exports = {
     template: __inline('user.view.tpl'),
     data: function(){...},
-    route: { //注册vue-router后，每个组件都有route模块
-        data: function(){...}, //用于加载数据，可选择性返回一个Promise
-        activate: function(){...},//在激活阶段，当组件被创建而且将要切入的时候被调用
-        deactivate: function(){...},//在激活阶段，当一个组件将要被禁用和移除之时被调用。
-        canActivate: function(){...},//在验证阶段，当一个组件将要被切入的时候被调用
-        canDeactivate: function(){...},//在验证阶段，当一个组件将要被切出的时候被调用。
-        canReuse: true //决定组件是否可以被重用。可重用时任然会进入data钩子，不可重用时从新经历验证和激活阶段。
+    route: {                            //注册vue-router后，每个组件都有route模块
+        data: function(){...},          //用于加载数据，可选择性返回一个Promise
+        activate: function(){...},      //在激活阶段，当组件被创建而且将要切入的时候被调用
+        deactivate: function(){...},    //在激活阶段，当一个组件将要被禁用和移除之时被调用。
+        canActivate: function(){...},   //在验证阶段，当一个组件将要被切入的时候被调用
+        canDeactivate: function(){...}, //在验证阶段，当一个组件将要被切出的时候被调用。
+        canReuse: true                  //决定组件是否可以被重用。可重用时任然会进入data钩子，不可重用时从新经历验证和激活阶段。
     },
     methods: {...}
 }
@@ -43,7 +43,7 @@ route: {
         }
     }
     
-    //
+    //ES6 语法
     data: ({ to: { params: { userId }}}) => ({
         user: userService.get(userId),
         post: postsService.getForUser(userId)
