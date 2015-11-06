@@ -15,6 +15,9 @@ router.map({
         subRoutes: { //子路由
             '/user': {
                 component: require('views/account/users/user.view')
+            },
+            '/user/:id': {
+                component: require('views/account/user/user.item')
             }
         }
     },

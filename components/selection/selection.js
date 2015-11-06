@@ -11,11 +11,12 @@ module.exports = {
             required: true,
             twoWay: true
         },
-        data: {
-            required: true,
-            type: Array
-        },
         tags: {
+            required: true,
+            type: Array,
+            default: []
+        },
+        isTags: {
             required: false,
             default: true
         },
@@ -39,16 +40,17 @@ module.exports = {
         }
     },
     ready: function(){
-        this.$$.select = $(this.$$.select).select2({
-            tags: this.tags,
+        console.log(this.$data)
+        this.$els.select = $(this.$els.select).select2({
+            isTags: this.isTags,
             tokenSeparators: this.split,
-            data: this.data,
+            tags: this.tags,
             placeholder: this.placeholder,
             language: require('/libs/select2/i18n/zh-CN')
         })
         .val(this.model).trigger('change')
         .on('change',function(e){
-            this.model = this.$$.select.val()
+            this.model = this.$els.select.val()
         }.bind(this))
         .on('select2:unselecting',function(e){
             for (var i = this.unselect.length - 1; i >= 0; i--) {
@@ -58,6 +60,6 @@ module.exports = {
         }.bind(this))
     },
     detached: function(){
-        this.$$.select.off('select2:unselecting')
+        this.$els.select.off('select2:unselecting')
     }
 }
