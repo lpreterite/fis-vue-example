@@ -10,14 +10,14 @@
     <tbody>
         <tr v-if="$loadingRouteData"><td colspan="4">loading...</td></tr>
         <template v-if="!$loadingRouteData">
-            <tr v-repeat="user : users">
+            <tr v-for="user in users" track-by="id">
                 <td>Nr.{%$index%}</td>
                 <td>{%user.id%}</td>
                 <td>{%user.name%}</td>
                 <td>{%user.sex%}</td>
                 <td>
-                    <a href="javascript:void('set display');" v-on="click: display(user)">{% user.is_display ? '不显示':'显示' %}</a>
-                    <a href="javascript:void('delete');" v-on="click: del(user.id)">删除</a>
+                    <a href="javascript:void('set display');" @click="display(user)">{% user.is_display ? '不显示':'显示' %}</a>
+                    <a href="javascript:void('delete');" @click="del(user)">删除</a>
                 </td>
             </tr>
             <tr v-if="users.length<=0">

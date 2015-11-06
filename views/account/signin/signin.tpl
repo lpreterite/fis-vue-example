@@ -1,6 +1,6 @@
 <h1>登录</h1>
 
-<form v-on="submit: signin($event)">
+<form @submit="signin($event)">
     <label for="name">账号</label>
     <input type="text" name="name" id="name" v-model="form.name">
     <label for="password">密码</label>

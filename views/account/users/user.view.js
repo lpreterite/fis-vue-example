@@ -21,16 +21,11 @@ module.exports = {
             //调用后端修改接口
             //$.save(config.api() + 'users_update.php', user)
         },
-        del: function(id){
+        del: function(user){
             //本地删除
-            var result = []
-            for (var i = 0; i < this.$data.users.length; i++) {
-                if(this.$data.users[i].id == id) continue
-                result.push(this.$data.users[i])
-            };
-            this.users = result
+            this.users.$remove(user)
             //调用后端删除接口
-            //$.del(config.api() + 'users_del.php', id)
+            //$.del(config.api() + 'users_del.php', user.id)
             //获得新数据
             //this.users = $.fetch(config.api() + 'users.php?mode=has')
         }
