@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 if($_GET['mode'] == "has"){
     echo json_encode([
         [
