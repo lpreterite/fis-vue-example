@@ -1,6 +1,8 @@
 #fis-vue-example
 基于fis构建的vuejs事例（包含vue-router的使用）
 
+> 目前使用vue的0.12版本
+
 ##vue-router使用经验分享
 ###router的生命周期
 
