@@ -10,7 +10,8 @@
     </p>
     <p>
         <label>爱好</label>
-        <selection name="tags" :model.sync="user.tags" tags="tags"></selection>
+        <!-- 数据绑定使用v-bind:props -->
+        <selection name="tags" :model.sync="user.tags" :tags="tags" style="width:400px"></selection>
     </p>
     <p>
         <button>提交</button>
@@ -18,12 +19,8 @@
 </form>
 
 <div>
-    {% tags|stringify %}
-</div>
-
-<div>
     <h3>{% user.name %} <small>{% user.sex == '男'? '♂':'♀' %}</small></h3>
     <p>
-        <label v-for="tag in user.tags">{%title%}</label>
+        <label v-for="id in user.tags" style="margin-right:10px">{% tags | find id | value 'text' %}</label>
     </p>
 </div>

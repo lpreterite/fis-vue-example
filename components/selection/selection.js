@@ -5,7 +5,7 @@
 var $ = require('jquery'),
     select2 = require('libs/select2/select2')
 module.exports = {
-    template: '<select v-el="select" multiple></select>',
+    template: '<select v-el:select multiple></select>',
     props: {
         model: {
             required: true,
@@ -40,7 +40,6 @@ module.exports = {
         }
     },
     ready: function(){
-        console.log(this.$data)
         this.$els.select = $(this.$els.select).select2({
             isTags: this.isTags,
             tokenSeparators: this.split,
@@ -48,7 +47,6 @@ module.exports = {
             placeholder: this.placeholder,
             language: require('/libs/select2/i18n/zh-CN')
         })
-        .val(this.model).trigger('change')
         .on('change',function(e){
             this.model = this.$els.select.val()
         }.bind(this))
@@ -58,6 +56,14 @@ module.exports = {
                 e.preventDefault()
             }
         }.bind(this))
+    },
+    watch: {
+        tags: function(val){
+            this.$els.select.select2({
+                data: this.tags
+            })
+            .val(this.model).trigger('change')
+        }
     },
     detached: function(){
         this.$els.select.off('select2:unselecting')
