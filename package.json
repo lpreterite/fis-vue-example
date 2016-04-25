@@ -4,7 +4,9 @@
   "description": "基于fis构建的vuejs事例（包含vue-router的使用）",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "fis3 release debug -w -d ../fis-vue-example-release",
+    "publish": "fis3 release publish -d ../fis-vue-example-release",
+    "server": "fis3 server start -p 8808 --root ../fis-vue-example-release"
   },
   "repository": {
     "type": "git",

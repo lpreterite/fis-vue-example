@@ -1,7 +1,25 @@
 #fis-vue-example
 基于fis构建的vuejs事例（包含vue-router的使用）
 
-> 例子使用vue 1.0.6与vue-router 0.7.5版本
+> 例子使用vue 1.0.6与vue-router 0.7.5版本，构建基于fis3
+
+
+##例子使用说明
+
+```
+//安装支持
+$ npm install
+
+//fis构建(debug模式)
+$ npm run dev
+
+//fis构建(生产模式)
+$ npm run publish
+
+//fis服务
+$ npm run server
+
+```
 
 ##vue-router使用经验分享
 ###router的生命周期
@@ -107,18 +125,6 @@ router.beforeEach(function (transition) {
 
 <!-- 跳转不留下历史记录 -->
 <a v-link="{ path: '/abc', replace: true }"></a>
-```
-
-
-##例子使用说明
-
-```
-//安装支持
-$ npm install
-
-//fis构建
-$ fis3 release -w -d ../fis-vue-example-release
-
 ```
 
 ##参考文档
