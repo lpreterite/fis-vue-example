@@ -3,6 +3,38 @@
 
 > 例子使用vue 1.0.6与vue-router 0.7.5版本
 
+```
+目录结构
+=================
+
+components/ 组件
+config/     配置
+libs/       外部库
+models/     数据模型
+partials/   代码片段
+views/      视图
+tests/      测试用例
+utils/      扩展类
+```
+
+##安装依赖库
+```
+npm install
+```
+
+##运行
+```
+//测试
+npm run dev
+//本地浏览
+npm run server
+
+//发布
+npm run publish
+//部署到测试服务器
+npm run qa
+```
+
 ##vue-router使用经验分享
 ###router的生命周期
 
@@ -107,18 +139,6 @@ router.beforeEach(function (transition) {
 
 <!-- 跳转不留下历史记录 -->
 <a v-link="{ path: '/abc', replace: true }"></a>
-```
-
-
-##例子使用说明
-
-```
-//安装支持
-$ npm install
-
-//fis构建
-$ fis3 release -w -d ../fis-vue-example-release
-
 ```
 
 ##参考文档

@@ -1,0 +1,36 @@
+{
+  "name": "fis-vue-example",
+  "description": "基于fis构建的vuejs事例（包含vue-router的使用）",
+  "main": "app.js",
+  "authors": [
+    "packy-tang <lpreterite@126.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "fis",
+    "vue-router"
+  ],
+  "moduleType": [],
+  "homepage": "https://git.coding.net/packy/fis-vue-example.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "promise": "~7.0.4",
+    "amazeui-videojs": "0.1.0",
+    "Swiper": "swiper#~3.2.7",
+    "vue": "1.0.11",
+    "jquery": "2.1.4",
+    "normalize-css": "~3.0.3",
+    "js-cookie": "2.0.4",
+    "vue-router": "0.7.7",
+    "requirejs": "~2.1.22",
+    "moment": "~2.10.6"
+  }
+}

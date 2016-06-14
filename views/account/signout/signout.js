@@ -1,5 +1,4 @@
 var config = require('config'),
-    $ = require('jquery'),
     cookies = require('cookies')
 
 module.exports = {

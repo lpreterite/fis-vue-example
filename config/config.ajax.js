@@ -1,8 +1,8 @@
 /**
  * Ajax Setting
  */
-var $ = require('jquery'),
-    expired = function(XMLHttpRequest){
+require('jquery');
+var expired = function(XMLHttpRequest){
         var router = require('config/config.router')
         if(XMLHttpRequest.status == 401) router.go('/account/signout')
     }
