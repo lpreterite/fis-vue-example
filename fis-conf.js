@@ -80,6 +80,20 @@ fis.match('test/**',{
     release: false
 })
 
+//降低更新频率，(第三方库更新频率比较低）
+fis.match('libs/**', {
+    useHash: false
+})
+//requirejs不需要模块化包裹
+fis.match('libs/requirejs/**', {
+    isMod: false
+})
+//打包文件也不需要模块化、文件名字混合hash值处理
+fis.match('pkg/**', {
+    isMod: false,
+    useHash: false
+})
+
 //对所有js文件进行如下处理
 //模块化包装(define包裹)
 //文件名字混合hash值
@@ -203,14 +217,4 @@ fis.media('qa').match('*',{
 
 /**=================自定义=================**/
 
-fis.match('libs/**', {
-    useHash: false
-})
-fis.match('libs/requirejs/**', {
-    isMod: false
-})
-fis.match('pkg/**', {
-    isMod: false,
-    useHash: false
-})
     
