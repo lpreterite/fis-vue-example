@@ -1,4 +1,3 @@
-require('libs/jquery.extend/jquery.extend')
 require('config/config.ajax')
 
 var Vue = require('vue'),

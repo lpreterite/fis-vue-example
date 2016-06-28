@@ -1,5 +1,4 @@
-var $ = require('jquery'),
-    config = require('config/config')
+var config = require('config/config')
 
 module.exports = {
     template: __inline('user.view.tpl'),

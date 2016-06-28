@@ -1,6 +1,5 @@
 var config = require('config'),
-    cookies = require('cookies'),
-    $ = require('jquery')
+    cookies = require('cookies')
 
 module.exports = {
     template: __inline('signin.tpl'),

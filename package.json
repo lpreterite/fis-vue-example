@@ -1,12 +1,13 @@
 {
   "name": "fis-vue-example",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "基于fis构建的vuejs事例（包含vue-router的使用）",
   "main": "app.js",
   "scripts": {
-    "dev": "fis3 release debug -w -d ../fis-vue-example-release",
-    "publish": "fis3 release publish -d ../fis-vue-example-release",
-    "server": "fis3 server start -p 8808 --root ../fis-vue-example-release"
+    "dev": "fis3 release debug -w -d ../release/fis-vue-example",
+    "publish": "fis3 release -d ../release/fis-vue-example-publish",
+    "server": "fis3 server start -p 8808 --root ../release/fis-vue-example",
+    "qa": "fis3 release qa -w"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,11 @@
     "vue-router"
   ],
   "devDependencies": {
-    "fis3": "^3.1.3",
-    "fis-preprocessor-cssprefixer": "0.0.2",
+    "fis3": "^3.3.16",
+    "fis-parser-node-sass": "^0.1.4",
     "fis3-hook-amd": "^0.1.1",
-    "fis3-postpackager-loader": "^1.3.2"
+    "fis3-postpackager-loader": "^1.3.2",
+    "fis3-preprocessor-autoprefixer": "^0.1.0"
   },
   "author": "packy <lpreterite@126.com>",
   "license": "MIT"

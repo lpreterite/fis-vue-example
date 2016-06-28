@@ -1,5 +1,4 @@
-var $ = require('jquery'),
-    config = require('config/config')
+var config = require('config/config')
 
 module.exports = {
     template: __inline('user.item.tpl'),
@@ -29,8 +28,5 @@ module.exports = {
 
             alert('更新成功')
         }
-    },
-    components: {
-        "selection": require('components/selection/selection')
     }
 }

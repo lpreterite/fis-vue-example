@@ -10,8 +10,6 @@
     </p>
     <p>
         <label>爱好</label>
-        <!-- 数据绑定使用v-bind:props -->
-        <selection name="tags" :model.sync="user.tags" :tags="tags" style="width:400px"></selection>
     </p>
     <p>
         <button>提交</button>
