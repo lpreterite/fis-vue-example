@@ -22,15 +22,13 @@
     "tests"
   ],
   "dependencies": {
-    "promise": "~7.0.4",
-    "amazeui-videojs": "0.1.0",
-    "Swiper": "swiper#~3.2.7",
-    "vue": "1.0.11",
-    "jquery": "2.1.4",
-    "normalize-css": "~3.0.3",
-    "js-cookie": "2.0.4",
-    "vue-router": "0.7.7",
-    "requirejs": "~2.1.22",
-    "moment": "~2.10.6"
+    "jquery": "2.2.0",
+    "bluebird": "^3.4.1",
+    "vue": "^1.0.25",
+    "normalize-css": "^4.1.1",
+    "vue-router": "^0.7.13",
+    "js-cookie": "^2.1.2",
+    "requirejs": "^2.2.0",
+    "jquery-store": "^1.0.0"
   }
 }

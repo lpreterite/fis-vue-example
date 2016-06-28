@@ -1,165 +1,92 @@
 #fis-vue-example
-基于fis构建的vuejs事例（包含vue-router的使用）
 
-> 例子使用vue 1.0.6与vue-router 0.7.5版本，构建基于fis3
+结合fis与vue的手脚架例子，同时提供一些实际开发时使用比较广泛的功能实现。
 
 
-##例子使用说明
+##快速开始
 
+安装支持
 ```
-//安装支持
 $ npm install
+```
 
-//fis构建(debug模式)
+本地部署并监控文件
+```
 $ npm run dev
+```
 
-//fis构建(生产模式)
+发布
+```
 $ npm run publish
+```
 
-//fis服务
+预览本地效果
+```
 $ npm run server
-
 ```
 
-```
-目录结构
-=================
 
+部署至测试服务器并监控文件
+```
+$ npm run qa
+```
+> 需要在测试机部署上传接收脚本（或者服务）
+> [nodejs版本](https://github.com/fex-team/receiver)
+> [php版本](https://github.com/fex-team/fis-command-release/blob/master/tools/receiver.php)
+
+
+
+##例子包含
+
+1. 快速使用、部署和打包
+2. 模拟数据接口
+3. 测试用例
+4. 组件化
+5. 模块化
+6. 标准化数据模型
+7. 标准化错误提示
+8. 标准化对象模型
+9. 标准化目录结构
+10. 统一化信息提示
+11. 上传例子
+
+
+##目录结构
+
+```
 components/ 组件
 config/     配置
 libs/       外部库
+utils/      扩展类
 models/     数据模型
 partials/   代码片段
 views/      视图
+
 tests/      测试用例
-utils/      扩展类
+└ apis/   模拟数据接口
 ```
 
-##安装依赖库
-```
-npm install
-```
 
-##运行
+##例子是基于
 ```
-//测试
-npm run dev
-//本地浏览
-npm run server
-
-//发布
-npm run publish
-//部署到测试服务器
-npm run qa
-```
-
-##vue-router使用经验分享
-###router的生命周期
-
-```
-module.exports = {
-    template: __inline('user.view.tpl'),
-    data: function(){...},
-    route: {                            //注册vue-router后，每个组件都有route模块
-        data: function(){...},          //用于加载数据，可选择性返回一个Promise
-        activate: function(){...},      //在激活阶段，当组件被创建而且将要切入的时候被调用
-        deactivate: function(){...},    //在激活阶段，当一个组件将要被禁用和移除之时被调用。
-        canActivate: function(){...},   //在验证阶段，当一个组件将要被切入的时候被调用
-        canDeactivate: function(){...}, //在验证阶段，当一个组件将要被切出的时候被调用。
-        canReuse: true                  //决定组件是否可以被重用。可重用时任然会进入data钩子，不可重用时从新经历验证和激活阶段。
-    },
-    methods: {...}
+//构建
+{
+    "fis3": "^3.3.16",
+    "fis-parser-node-sass": "^0.1.4",
+    "fis3-hook-amd": "^0.1.1",
+    "fis3-postpackager-loader": "^1.3.2",
+    "fis3-preprocessor-autoprefixer": "^0.1.0"
 }
 
-//全局钩子可设置多个，按设置顺序执行。
-//全局的前置钩子，路由切换开始时调用，如果此钩子函数拒绝了切换，整个切换流水线根本就不会启动。
-router.beforeEach(function (transition) {...})
-//全局的后置钩子，该函数会在每次路由切换成功进入激活阶段时被调用。在这个后置钩子函数里不能调用任何切换函数。
-router.afterEach(function (transition) {...})
-```
-
-###路由钩子使用说明
-
-1. 所有钩子都有一个transition传入对象。
-2. 在canActivate和canDeactivate钩子必须使用transition.next()让组件进入渲染阶段，当使用transition.abort()否决时会回退到前一个路由状态。
-3. transition.to和transition.from都是一个[路由对象](#_2)。
-4. canReuse钩子中只能访问transition.to 和 transition.from。
-
-```
-route: {
-    data: function(transition){
-        var userId = transition.to.params.userId
-        return {
-          user: userService.get(userId),
-          post: postsService.getForUser(userId)
-        }
-    }
-    
-    //ES6 语法
-    data: ({ to: { params: { userId }}}) => ({
-        user: userService.get(userId),
-        post: postsService.getForUser(userId)
-    })
+//前端库
+{
+    "jquery": "2.2.0",
+    "bluebird": "^3.4.1",
+    "vue": "^1.0.25",
+    "normalize-css": "^4.1.1",
+    "vue-router": "^0.7.13",
+    "js-cookie": "^2.1.2",
+    "requirejs": "^2.2.0",
+    "jquery-store": "^1.0.0"
 }
 ```
-
-###路由对象
-在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。
-
-```
-module.exports = {
-    ...
-    data: function(){
-        var path = this.$route.path // "/account/signin"
-        var params = this.$route.params //包含所有动态片段，详细看下文
-        var query = this.$route.query // 无视它用params
-        var matched = this.$route.matched // 无视它用params
-
-        this.$route.router //路由本身
-    }
-    ...
-}
-
-```
-
-####动态片段说明
-当路由是'/user/:username'时，可这样`this.$router.params.username`获得username，
-当路径包含 '?uid=2'时，也可以`this.$router.params.uid`获得uid
-
-####自定义字段
-```
-router.map({
-  '/a': {
-    component: { ... },
-    auth: true // 这里 auth 是一个自定义字段
-  }
-})
-
-router.beforeEach(function (transition) {
-  if (transition.to.auth) {
-    // 对用户身份进行验证...
-  }
-})
-```
-
-###v-link
-```
-<!-- 字面量路径 -->
-<a v-link="'home'">Home</a>
-<!-- 传参数 -->
-<a v-link="'account/user?uid=' + user.id">User detail</a>
-
-<!-- 效果同上 -->
-<a v-link="{ path: 'home' }">Home</a>
-
-<!-- 具名路径 -->
-<a v-link="{ name: 'user', params: { userId: 123 }}">User</a>
-
-<!-- 跳转不留下历史记录 -->
-<a v-link="{ path: '/abc', replace: true }"></a>
-```
-
-##参考文档
-
-[vue-router文档](http://vuejs.github.io/vue-router/zh-cn/index.html)
-[vue v0.12文档](http://cn.vuejs.org/)

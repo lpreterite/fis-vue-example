@@ -16,14 +16,15 @@
     ".travis.yml"
   ],
   "homepage": "https://github.com/js-cookie/js-cookie",
-  "version": "2.0.4",
-  "_release": "2.0.4",
+  "version": "2.1.2",
+  "_release": "2.1.2",
   "_resolution": {
     "type": "version",
-    "tag": "v2.0.4",
-    "commit": "6a739a3593c018e60691687a22f37fcaa6f2bb85"
+    "tag": "v2.1.2",
+    "commit": "8bb6144bc6efd3ccf95af29dd8ed67fcfe33eaa7"
   },
-  "_source": "git://github.com/js-cookie/js-cookie.git",
-  "_target": "2.0.4",
-  "_originalSource": "js-cookie"
+  "_source": "https://github.com/js-cookie/js-cookie.git",
+  "_target": "^2.1.2",
+  "_originalSource": "js-cookie",
+  "_direct": true
 }
