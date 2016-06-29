@@ -29,15 +29,10 @@ var amd_paths = { //使常用模块设定别名
         "vue": "libs/vue/dist/vue",
         "vue-router": "libs/vue-router/dist/vue-router",
         "jquery": "libs/jquery/dist/jquery",
-        "moment": "libs/moment/moment",
-        "swiper": "libs/swiper/dist/js/swiper",
-        "promise": "libs/bluebird/js/browser/bluebird",
-        "vue-router": "libs/vue-router/dist/vue-router",
-        "underscore": "libs/underscore/underscore"
+        "promise": "libs/bluebird/js/browser/bluebird"
     },
     amd_shim = { //多用于不改目标文件，指定其依赖和暴露内容的效果。
-        "app": ['jquery'],
-        "libs/bootstrap/bootstrap": ['jquery','jquery.extend']
+        "app": ['jquery']
     }
 
 //cdn设定
@@ -45,8 +40,6 @@ var cdn_domain = "http://cdn.bootcss.com/", //cdn域名
     cdn_list = { //cdn替换列表
         "libs/jquery/dist/jquery.js": "jquery/2.2.1/jquery.min.js",
         "libs/vue/dist/vue.js": "vue/1.0.17/vue.min.js",
-        "libs/moment/moment.js": "moment.js/2.11.2/moment.min.js",
-        "libs/swiper/dist/js/swiper.js": "Swiper/3.3.1/js/swiper.min.js",
         "libs/bluebird/js/browser/bluebird.js": "bluebird/3.3.3/bluebird.min.js",
         "libs/requirejs/require.js": "require.js/2.1.22/require.min.js",
         "libs/js-cookie/src/js.cookie.js": "js-cookie/2.1.0/js.cookie.min.js",
@@ -73,25 +66,6 @@ fis.match('**.{php,html}',{
 //所有tpl模版文件生成到临时目录
 fis.match('**.tpl', {
     release: template_dir + template_temp_dir + "$&"
-})
-
-//部署环境不产出测试用例
-fis.match('test/**',{
-    release: false
-})
-
-//降低更新频率，(第三方库更新频率比较低）
-fis.match('libs/**', {
-    useHash: false
-})
-//requirejs不需要模块化包裹
-fis.match('libs/requirejs/**', {
-    isMod: false
-})
-//打包文件也不需要模块化、文件名字混合hash值处理
-fis.match('pkg/**', {
-    isMod: false,
-    useHash: false
 })
 
 //对所有js文件进行如下处理
@@ -184,6 +158,30 @@ for (var i = 0; i < keys.length; i++) {
     })
 }
 
+
+//部署环境不产出测试用例
+fis.match('tests/**',{
+    release: false
+})
+fis.match('tests/mock/**',{
+    isMod: false
+})
+
+//降低更新频率，(第三方库更新频率比较低）
+fis.match('libs/**', {
+    useHash: false
+})
+//requirejs不需要模块化包裹
+fis.match('libs/requirejs/**', {
+    isMod: false
+})
+//打包文件也不需要模块化、文件名字混合hash值处理
+fis.match('pkg/**', {
+    isMod: false,
+    useHash: false
+})
+
+
 /**+++++++++++ debug 模式的设定 +++++++++++**/
 //debug模式下的js、scss、css不进行压缩，文件名不添加hash值，文件不进行打包压缩
 //debug模式产出到本地服务器进行测试
@@ -199,11 +197,17 @@ fis.media('debug').match('::package', {
 })
 
 //debug模式下产出测试用例
-fis.media('debug').match('test/**',{
+fis.media('debug').match('tests/**',{
     release: asset_dir + '/$0'
 })
-fis.media('debug').match('test/(*.html)',{
+fis.media('debug').match('tests/(*.html)',{
     release: template_dir+'$1'
+})
+fis.media('debug').match('tests/mock/(**.js)',{
+    release: 'test/$1'
+})
+fis.media('debug').match('tests/mock/server.conf',{
+    release: 'config/server.conf'
 })
 
 /**+++++++++++ qa 模式的设定 +++++++++++**/

@@ -62,8 +62,7 @@ models/     数据模型
 partials/   代码片段
 views/      视图
 
-tests/      测试用例
-└ apis/   模拟数据接口
+tests/       测试目录
 ```
 
 
