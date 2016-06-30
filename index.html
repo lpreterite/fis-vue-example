@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-hans">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>To Do List</title>
 </head>
 <body>
-    <div class="container-full">
-        <router-view></router-view>
-    </div>
+    <section id="app" class="container">
+        <layout>
+            <router-view></router-view>
+        </layout>
+    </section>
 
     <script src="/libs/requirejs/require.js"></script>
     <script>
