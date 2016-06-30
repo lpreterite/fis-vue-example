@@ -50,6 +50,21 @@ var cdn_domain = "http://cdn.bootcss.com/", //cdn域名
  * 对所有文件设定生成目录处理，并添加对js、css、scss文件进行预编译、压缩等处理
  */
 /**=================默认设置=================**/
+//默认过滤
+fis.set('project.ignore',[
+    '**.md',
+    '**/LICENSE',
+    '**.map',
+    '*.sublime-project',
+    'node_modules/**',
+    'output/**',
+    'libs/**.json',
+    'libs/**/*{.,-}min.*',
+    'fis-conf.js',
+    'bower.json',
+    'package.json',
+    'LICENSE'
+]);
 
 //设定所有文件默认产出目录
 fis.match('**',{
@@ -171,6 +186,9 @@ fis.match('tests/mock/**',{
 fis.match('libs/**', {
     useHash: false
 })
+fis.match('libs/**.html', {
+    release: false
+})
 //requirejs不需要模块化包裹
 fis.match('libs/requirejs/**', {
     isMod: false
@@ -187,7 +205,9 @@ fis.match('pkg/**', {
 //debug模式产出到本地服务器进行测试
 fis.media('debug').match('**.{js,scss,css}',{
     useHash: false,
-    optimizer: null
+    optimizer: null,
+    domain: "",
+    url: url + '$&'
 })
 fis.media('debug').match('::package', {
     postpackager: fis.plugin('loader', {
