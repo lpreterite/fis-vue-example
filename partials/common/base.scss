@@ -1,0 +1,20 @@
+@import "/libs/normalize-css/normalize.css";
+@import "/libs/font-awesome/css/font-awesome.css";
+@import "reset.scss";
+@import "label.scss";
+@import "button.scss";
+@import "form.scss";
+
+a{
+    color: #333;
+    &:active{
+        color: #999;
+        border-bottom: dotted 1px #999;
+    }
+    &:hover{
+        color: rgb(230, 219, 116);
+    }
+    &:focus{
+        color: rgb(230, 219, 116);
+    }
+}

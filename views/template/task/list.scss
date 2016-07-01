@@ -1,0 +1,15 @@
+#task-list{
+    .tasks{
+        > li{
+            margin: 10px 0;
+            .label{
+                margin-right: 5px;
+            }
+            .editing{
+                p:last-child{
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+}

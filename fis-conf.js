@@ -23,7 +23,6 @@ var asset_dir = "/assets",
 
 //require.config的预设定
 var amd_paths = { //使常用模块设定别名
-        "template": "views/template/",
         "config": "config/config",
         "cookies": "libs/js-cookie/src/js.cookie",
         "require": "libs/requirejs/require",
@@ -242,4 +241,7 @@ fis.media('qa').match('*',{
 
 /**=================自定义=================**/
 
-    
+//font-awesome的scss文件会出错所以忽略了
+fis.match('libs/font-awesome/{scss,less}/**',{
+    release: false
+})

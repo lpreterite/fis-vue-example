@@ -29,6 +29,7 @@
     "vue-router": "^0.7.13",
     "js-cookie": "^2.1.2",
     "requirejs": "^2.2.0",
-    "jquery-store": "^1.0.0"
+    "jquery-store": "^1.0.0",
+    "font-awesome": "Font-Awesome#^4.6.3"
   }
 }
