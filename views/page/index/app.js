@@ -3,7 +3,7 @@ var Vue = require('vue'),
 
 var App = Vue.extend({
     components:{
-        layout: require('views/common/layout/layout')
+        layout: require('views/template/common/layout/layout')
     }
 })
 router.start(App, "#app")

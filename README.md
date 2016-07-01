@@ -49,7 +49,7 @@ $ npm run qa
 9. 上传例子
 
 
-##目录结构
+##固定的目录结构
 
 ```
 components/ 组件
@@ -59,6 +59,9 @@ utils/      扩展类
 models/     数据模型
 partials/   代码片段
 views/      视图
+├ page      页面目录(.html)
+└ template  模板目录(.tpl)
+
 
 tests/       测试目录
 ```

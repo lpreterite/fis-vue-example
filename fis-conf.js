@@ -23,6 +23,7 @@ var asset_dir = "/assets",
 
 //require.config的预设定
 var amd_paths = { //使常用模块设定别名
+        "template": "views/template/",
         "config": "config/config",
         "cookies": "libs/js-cookie/src/js.cookie",
         "require": "libs/requirejs/require",
@@ -73,8 +74,8 @@ fis.match('**',{
 })
 
 //设定产出页面目录
-fis.match('**.{php,html}',{
-    release: template_dir + "$&",
+fis.match('views/page/**/(*.{php,html,jsp,asp})',{
+    release: template_dir + "$1",
     // loaderLang: 'html' //新版本已修复此问题，让非静态页面也能按html方式进行资源加载。
 })
 

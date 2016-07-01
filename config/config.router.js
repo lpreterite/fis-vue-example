@@ -11,16 +11,16 @@ router.map({
     "/":{
         name: "index",
         component: function(resolve){
-            require(['views/task/list'], resolve)
+            require(['views/template/task/list'], resolve)
         }
     },
     "/:id":{
         name: "detail",
-        component: function(resolve){require(['views/task/detail'], resolve)}
+        component: function(resolve){require(['views/template/task/detail'], resolve)}
     },
     //以上路由都不匹配时显示
     '*': {
-        component: function(resolve){require(['views/common/empty'], resolve)}
+        component: function(resolve){require(['views/template/common/empty/empty'], resolve)}
     }
 })
 
