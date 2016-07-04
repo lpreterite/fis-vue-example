@@ -1,8 +1,7 @@
 <div class="taskItem">
     <div class="display" v-if="state.ui=='display'">
-        <input type="checkbox" id="ch_{% data.id %}" v-model="data.complete"><label for="ch_{% data.id %}" class="checkbox">
-            <span class="label" v-for="tag in data.tags">{% tag.title %}</span><span>{% data.title %}</span>
-        </label>
+        <input type="checkbox" id="ch_{% data.id %}" v-model="data.complete">
+        <span class="label" v-for="tag in data.tags">{% tag.title %}</span><a v-link="{name:'detail', params:{id: data.id}}">{% data.title %}</a>
         <span class="pull-right">
             <a href="javascript:void('to edit');" @click="render('editing')"><i class="fa fa-pencil-square-o"></i></a>
             <a href="javascript:void('del');" @click="delete"><i class="fa fa-trash"></i></a>

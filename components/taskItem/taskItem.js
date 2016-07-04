@@ -81,13 +81,15 @@ module.exports = {
                 var title = val.replace(/#.*# /ig,''),
                     _tags = val.match(/#.[^#]*#/ig)
 
-                var tags = []
-                for (var i = 0; i < _tags.length; i++) {
-                    tags.push({title: _tags[i].replace(/#/ig,'')})
+                if(_tags != null){
+                    var tags = []
+                    for (var i = 0; i < _tags.length; i++) {
+                        tags.push({title: _tags[i].replace(/#/ig,'')})
+                    }
                 }
                 this.data.tags = tags
                 this.data.title = title
             }
         }
-    } 
+    }
 }
