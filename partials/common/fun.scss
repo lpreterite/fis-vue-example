@@ -1,0 +1,40 @@
+
+@mixin bg($url,$size:auto,$pos:left center,$repeat:no-repeat){
+    background-image: $url;
+    @include bgSetting($size, $pos, $repeat)
+}
+
+@mixin bgSetting($size:auto,$pos:left center,$repeat:no-repeat){
+    background-repeat: $repeat;
+    background-position: $pos;
+    background-size: $size;
+}
+
+@mixin clearfix(){
+    content: '';
+    display: table;
+    clear: both;
+}
+
+@mixin autoCuteStr(){
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+@mixin autoCuteContext($line, $line-height: 1.42857143){
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    line-height: $line-height;
+    max-height: ($line-height * $line) + em;
+}
+
+@mixin flex($horizontal: flex-start, $vertical: center, $direction: row){
+    display: flex;
+    justify-content: $horizontal;
+    align-items: $vertical;
+    flex-direction: $direction;
+}

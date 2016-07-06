@@ -1,13 +1,13 @@
-.btn{
-    background-color: #232323;
-    color: rgb(230, 219, 116);
-    padding: 3px 5px;
-    display: inline-block;
-    border: solid 1px #232323;
-    cursor: pointer;
-
+.pure-button{
     &.ui-ghost{
         background-color: transparent;
-        color: #232323;
+    }
+
+    &.ui-sm{
+        font-size: 12px;
+    }
+
+    &.ui-slick{
+        border-radius: 25px;
     }
 }

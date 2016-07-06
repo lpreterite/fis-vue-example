@@ -5,7 +5,12 @@ module.exports = {
     template: __inline('taskItem.tpl'),
     props: {
         data: {
-            default: task.default()
+            default: function(){
+                return task.default()
+            }
+        },
+        isNews:{
+            default: true
         }
     },
     data: function(){
@@ -33,6 +38,7 @@ module.exports = {
                 .save(this.data)
                 .then(function(){
                     this.state.ui = 'display'
+                    this.$emit('saved', this.data)
                 }.bind(this))
                 .catch(function(){
 
@@ -58,9 +64,14 @@ module.exports = {
                         this.$els.input.focus()
                     })
                     break;
-                default:
-                    break;
             }
+            if(state == 'display'){
+                this.$emit('display', state)
+            }
+        },
+        clear: function(){
+            this.data = task.default()
+            this.title = this.titleHandle
         }
     },
     watch: {
@@ -72,8 +83,10 @@ module.exports = {
         titleHandle: {
             get: function(){
                 var str_arr = []
-                for (var i = 0; i < this.data.tags.length; i++) {
-                    str_arr.push("#"+ this.data.tags[i].title +"#")
+                if(typeof this.data.tags != "undefined"){
+                    for (var i = 0; i < this.data.tags.length; i++) {
+                        str_arr.push("#"+ this.data.tags[i].title +"#")
+                    }
                 }
                 return str_arr.join(' ') + (str_arr.length > 0 ? " " : "") + this.data.title
             },
