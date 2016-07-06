@@ -1,4 +1,29 @@
 #task-list{
+    > header{
+        background-color: #b0cadb;
+        // border-bottom: solid 1px #b0cadb;
+        color: #fff;
+        > h1{
+            font-size: 18px;
+            margin: 0.825em;
+        }
+
+        @media (min-width: 48em) {
+            > h1{
+                font-size: 48px;
+                height: 48px;
+                margin-bottom: 0;
+                margin-top: 2em;
+                overflow-y: hidden;
+            }
+        }
+    }
+    > article{
+        padding: 1em;
+    }
+    > footer{
+        padding: 1em;
+    }
     .tasks{
         > li{
             margin: 10px 0;

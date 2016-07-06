@@ -1,0 +1,39 @@
+.taskItem{
+    position: relative;
+    .title{
+        display: inline-block;
+        padding: .25em;
+    }
+    input[type=checkbox]{
+        position: absolute;
+        top: 6px;
+        left: 0;
+    }
+    .fun{
+        text-align: right;
+        margin-top: 5px;
+        display: block;
+    }
+    
+    .display{
+        margin-left: 24px;
+        .fun{
+            float: right;
+        }
+    }
+    .editing{
+        margin-left: 24px;
+        form{
+            .title{
+                width: 100%;
+                border: 0;
+                border-color: transparent;
+                border-bottom: dotted 1px #b0cadb;
+                margin-bottom: -1px;
+                &:focus{
+                    border-bottom-color: #3d4f5d
+                }
+            }
+        }
+    }
+}

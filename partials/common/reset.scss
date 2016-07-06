@@ -97,7 +97,7 @@ img{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-div:before,div:after,section:before,section:after,article:before,article:after,aside:before,aside:after,li:before,li:after{
+div:before,div:after,section:before,section:after,article:before,article:after,aside:before,aside:after,li:before,li:after,header:before,header:after,footer:before,footer:after,nav:before,nav:after{
     display: table;
     content: "";
 }
