@@ -33,7 +33,8 @@ var amd_paths = { //使常用模块设定别名
     },
     amd_shim = { //多用于不改目标文件，指定其依赖和暴露内容的效果。
         "app": ['jquery']
-    }
+    },
+    PKGDetail = {}
 
 //cdn设定
 var cdn_domain = "http://cdn.bootcss.com/", //cdn域名
@@ -100,6 +101,7 @@ fis.match('**.js',{
 //压缩处理
 fis.match('**.css',{
     useHash: true,
+    useSprite: true,
     optimizer: fis.plugin('clean-css')
 })
 //对所有scss文件进行如下处理
@@ -114,9 +116,11 @@ fis.match('**.scss',{
         //if you want to use outputStyle option, you must install fis-parser-sass2 !
         outputStyle: 'expanded'
     }),
-    preprocessor : fis.plugin("autoprefixer",{
-       "browsers": ["last 5 versions"],
-       "cascade": true
+    postprocessor : fis.plugin("autoprefixer",{
+        "browsers": ["last 5 versions"],
+        "cascade": true,
+        "flexboxfixer": true,
+        "gradientfixer": true
     }),
     optimizer: fis.plugin('clean-css')
 })
@@ -160,6 +164,7 @@ fis.match('::package', {
         useInlineMap: false, // 资源映射表内嵌到页面
         resoucemap: "/pkg/${filepath}_aio_map.js"
     }),
+    packager: fis.plugin('deps-pack', PKGDetail),
     //图片合并处理
     spriter: fis.plugin('csssprites')
 })
@@ -238,7 +243,10 @@ fis.media('qa').match('*',{
         to: push_dir //部署目录
     })
 });
-
+//打包文件也不需要模块化、文件名字混合hash值处理
+fis.match('pkg/**/**', {
+    useHash: true
+})
 /**=================自定义=================**/
 
 //font-awesome的scss文件会出错所以忽略了

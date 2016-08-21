@@ -5,7 +5,7 @@
 
 ##快速开始
 
-安装支持
+安装依赖
 ```
 $ npm install
 ```
@@ -66,27 +66,35 @@ views/      视图
 tests/       测试目录
 ```
 
-
-##例子是基于
+## 运行环境
 ```
-//构建
-{
-    "fis3": "^3.3.16",
-    "fis-parser-node-sass": "^0.1.4",
-    "fis3-hook-amd": "^0.1.1",
-    "fis3-postpackager-loader": "^1.3.2",
-    "fis3-preprocessor-autoprefixer": "^0.1.0"
-}
+node 4.5.0
+npm 3.10.x
+python 2.7.x
+fis3 3.3.12以上
 
-//前端库
-{
-    "jquery": "2.2.0",
-    "bluebird": "^3.4.1",
-    "vue": "^1.0.25",
-    "normalize-css": "^4.1.1",
-    "vue-router": "^0.7.13",
-    "js-cookie": "^2.1.2",
-    "requirejs": "^2.2.0",
-    "jquery-store": "^1.0.0"
-}
+win系统还需 Microsoft Visual Studio 2010以上
+linux系统需要 c++运行环境
+```
+
+### 环境安装细节
+win下需要管理者权限
+```
+# 更新npm
+sudo npm update -g npm
+
+# 安装fis3
+sudo npm install -g fis3
+```
+
+## 安装依赖
+命令行进入项目目录根
+```
+npm i
+```
+
+### 安装其他问题
+假如运行出错，或很久不动，可能是node-sass安装问题，使用`ctrl+c`停止命令，然后重装。
+```
+npm rebuild node-sass
 ```
