@@ -33,9 +33,9 @@ module.exports = {
                 })
         },
         save: function(){
-            this.titleHandle = this.title
+            var data = $.extend(this.data, task.dismantleTitle(this.title))
             task
-                .save(this.data)
+                .save(data)
                 .then(function(){
                     this.state.ui = 'display'
                     this.$emit('saved', this.data)
@@ -45,6 +45,8 @@ module.exports = {
                 })
         },
         delete: function(){
+            if(!confirm('确定删除 ' + this.data.title + '吗？')) return;
+
             task
                 .delete(this.data.id)
                 .then(function(){
@@ -59,7 +61,7 @@ module.exports = {
                 case 'display':
                     break;
                 case 'editing':
-                    this.title = this.titleHandle
+                    this.title = task.compoundTitile(this.data)
                     this.$nextTick(function(){
                         this.$els.input.focus()
                     })
@@ -77,32 +79,6 @@ module.exports = {
     watch: {
         'data.complete': function(){
             this.complete()
-        }
-    },
-    computed:{
-        titleHandle: {
-            get: function(){
-                var str_arr = []
-                if(typeof this.data.tags != "undefined"){
-                    for (var i = 0; i < this.data.tags.length; i++) {
-                        str_arr.push("#"+ this.data.tags[i].title +"#")
-                    }
-                }
-                return str_arr.join(' ') + (str_arr.length > 0 ? " " : "") + this.data.title
-            },
-            set: function(val){
-                var title = val.replace(/#.*# /ig,''),
-                    _tags = val.match(/#.[^#]*#/ig)
-
-                if(_tags != null){
-                    var tags = []
-                    for (var i = 0; i < _tags.length; i++) {
-                        tags.push({title: _tags[i].replace(/#/ig,'')})
-                    }
-                }
-                this.data.tags = tags
-                this.data.title = title
-            }
         }
     }
 }

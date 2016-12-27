@@ -13,9 +13,16 @@ module.exports = {
     },
     route: {
         data: function(transition){
-            return {
-                tasks: task.fetch()
-            }
+
+            setTimeout(function(){
+                transition.next({
+                    tasks: task.fetch()
+                })
+            }, 1000)
+
+            // return {
+            //     tasks: task.fetch()
+            // }
         }
     },
     methods: {

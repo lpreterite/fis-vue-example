@@ -10,13 +10,13 @@ var router = new VueRouter()
 router.map({
     "/":{
         name: "index",
-        component: function(resolve){
-            require(['views/template/task/list'], resolve)
-        }
+        component: require('views/template/task/list')
+        // component: function(resolve){require(['views/template/task/list'], resolve)}
     },
     "/:id":{
         name: "detail",
-        component: function(resolve){require(['views/template/task/detail'], resolve)}
+        component: require('views/template/task/detail')
+        // component: function(resolve){require(['views/template/task/detail'], resolve)}
     },
     //以上路由都不匹配时显示
     '*': {

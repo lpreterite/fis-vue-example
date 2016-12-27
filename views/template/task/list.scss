@@ -1,11 +1,17 @@
 #task-list{
     > header{
         background-color: #b0cadb;
-        // border-bottom: solid 1px #b0cadb;
         color: #fff;
+        overflow: hidden;
         > h1{
             font-size: 18px;
             margin: 0.825em;
+
+            transition: transform .5s;
+            transform: translate(-100%, 0);
+            &.animation{
+                transform: translate(0, 0);
+            }
         }
 
         @media (min-width: 48em) {
@@ -36,5 +42,20 @@
                 }
             }
         }
+    }
+
+    .taskItem-transition{
+        transition: opacity .35s ease;
+    }
+    .taskItem-enter{
+        opacity: 1;
+    }
+    .taskItem-leave{
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+    }
+    .taskItem-move{
+        transition: transform .5s ease;
     }
 }

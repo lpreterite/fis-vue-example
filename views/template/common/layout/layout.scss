@@ -3,6 +3,7 @@
 .sidebar {
     background: rgb(61, 79, 93);
     color: #fff;
+    overflow: hidden;
     
     @media (min-width: 48em) {
         position: fixed;
@@ -16,6 +17,17 @@
         text-align: center;
         top: auto;
         margin: 3em auto;
+        
+        transform: translate(0, 125%);
+        opacity: 0;
+
+        animation-name: layout-sidebar-heading;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s;
+
         @media (min-width: 48em) {
             margin: 80% 2em 0;
             text-align: right;
@@ -63,5 +75,13 @@
 .content {
     @media (min-width: 48em) {
         margin-left: 25%;
+    }
+}
+
+
+@keyframes layout-sidebar-heading{
+    100%{
+        opacity: 1;
+        transform: translate(0, 0);
     }
 }

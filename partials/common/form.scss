@@ -3,9 +3,13 @@
 }
 
 .form-control{
-    border: solid 1px #333;
-    padding: 3px 5px;
+    padding: .25em;
+    display: inline-block;
+    border: 0;
+    border-color: transparent;
+    border-bottom: dotted 1px #b0cadb;
+    margin-bottom: -1px;
     &:focus{
-        border-color: rgb(230, 219, 116);
+        border-bottom-color: #3d4f5d
     }
 }

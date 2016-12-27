@@ -27,5 +27,8 @@
     "fis3-postprocessor-autoprefixer": "^1.0.0"
   },
   "author": "packy <lpreterite@126.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vue-animated-list": "^1.0.2"
+  }
 }

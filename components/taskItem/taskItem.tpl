@@ -10,7 +10,7 @@
     <div class="editing" v-else>
         <form @submit.prevent="save">
             <input type="checkbox" id="ch_{% data.id %}" v-model="data.complete" disabled="">
-            <input type="text" v-model="title" v-el:input class="title">
+            <input type="text" v-model="title" v-el:input class="title form-control">
             <span class="fun">
                 <button type="submit" class="pure-button pure-button-primary ui-slick ui-sm"><i class="fa fa-check"></i> {% isNews ? '添加新任务' : '编辑完成' %}</button>
                 <button type="button" class="pure-button ui-slick ui-sm" @click="render('display')"><i class="fa fa-times"></i> 取消</button>

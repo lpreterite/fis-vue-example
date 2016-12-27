@@ -13,6 +13,11 @@
         text-align: right;
         margin-top: 5px;
         display: block;
+        @media (min-width: 48em) {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
     }
     
     .display{
@@ -23,16 +28,12 @@
     }
     .editing{
         margin-left: 24px;
+        @media (min-width: 48em) {
+            margin-right: 200px;
+        }
         form{
             .title{
                 width: 100%;
-                border: 0;
-                border-color: transparent;
-                border-bottom: dotted 1px #b0cadb;
-                margin-bottom: -1px;
-                &:focus{
-                    border-bottom-color: #3d4f5d
-                }
             }
         }
     }

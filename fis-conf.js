@@ -28,6 +28,7 @@ var amd_paths = { //使常用模块设定别名
         "require": "libs/requirejs/require",
         "vue": "libs/vue/dist/vue",
         "vue-router": "libs/vue-router/dist/vue-router",
+        "vue-animated-list": "libs/vue-animated-list/vue-animated-list",
         "jquery": "libs/jquery/dist/jquery",
         "promise": "libs/bluebird/js/browser/bluebird"
     },
