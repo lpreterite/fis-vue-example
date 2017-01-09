@@ -139,8 +139,8 @@ module.exports = function(fis, opts){
     //同名资源关联加载(这里指和js同名的css文件)
     //压缩处理
     fis.match('**.js', jsConf);
-    fis.set('project.fileType.text', 'es');
-    fis.match('**.es',  Object.assign({}, jsConf, {
+    fis.match('**.es6',  Object.assign({}, jsConf, {
+        rExt: 'js',
         parser: fis.plugin('babel-6.x')
     }));
 
@@ -207,7 +207,7 @@ module.exports = function(fis, opts){
         //多用于不改目标文件，指定其依赖和暴露内容的效果。
         shim: amd.shim,
         tab: conf.amd.tab || 4, //设定内容缩进的空格数
-        extList: ['.js', '.coffee', '.jsx', '.es6', '.es', '.vue']
+        extList: ['.js', '.coffee', '.jsx', '.es6', '.vue']
     });
 
 
@@ -261,7 +261,7 @@ module.exports = function(fis, opts){
         release: path.posix.join(debugConf.pagePath, "$1")
     });
 
-    fis.media('debug').match('**.{js,scss,css}',{
+    fis.media('debug').match('**.{js,es6,vue,scss,css}',{
         useHash: false,
         optimizer: null,
         domain: ""
