@@ -17,7 +17,7 @@
  * build
  * test
  * src
- * - libs #外部的库
+ * - libs #外部的库(bower_modules)
  * - assets #共有静态文件目录
  * - components #共有组件目录
  * - pages #页面目录（默认main.js为入口、html名字需和目录名一致）
@@ -52,16 +52,16 @@ module.exports = {
     amd: {
         paths: {
             "config": "config/config",
-            "cookies": "libs/js-cookie/src/js.cookie",
-            "require": "libs/requirejs/require",
-            "vue": "libs/vue/dist/vue",
-            "vue-router": "libs/vue-router/dist/vue-router",
-            "vue-animated-list": "libs/vue-animated-list/vue-animated-list",
-            "jquery": "libs/jquery/dist/jquery",
-            "promise": "libs/bluebird/js/browser/bluebird"
         },
+        packages: [{
+            name: 'vue-animated-list',
+            location: '/libs/vue-animated-list',
+            main: 'vue-animated-list'
+        }],
         shim: {
-            "app": ['jquery']
+            //[ERROR] Cannot read property 'dirname' of undefined
+            //如出现以上bug，请在shim的key最前加上 '/'，不然会当成已命名的包加载。
+            "/pages/index/app": ['jquery']
         },
         tab: 4
     },
@@ -70,14 +70,14 @@ module.exports = {
         output: 'pkg',
         vendor: {
             'vendor.js': [
-                'cookies',
+                'js-cookie',
                 'vue',
                 'vue-router',
                 'vue-animated-list',
                 'jquery',
                 'promise',
             ],
-            'config.js': ['config/config.js']
+            'config.js': ['config/config']
         },
         ignore: []
     },

@@ -46,6 +46,6 @@ module.exports = {
         }
     },
     components: {
-        taskItem: require('components/taskItem/taskItem')
+        taskItem: require('pages/index/components/taskItem')
     }
 }

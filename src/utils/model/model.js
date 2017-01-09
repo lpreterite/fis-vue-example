@@ -1,7 +1,7 @@
 require('jquery')
 
 var config = require('config'),
-    Promise = require('promise')
+    Promise = require('bluebird')
 
 function Model(){
     this.init()

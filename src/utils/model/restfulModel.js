@@ -1,7 +1,7 @@
 var Model = require('model')
 
 var config = require('config'),
-    Promise = require('promise')
+    Promise = require('bluebird')
 
 function RestfulModel(name, emulateIdKey){
     this.init({
