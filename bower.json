@@ -30,6 +30,8 @@
     "js-cookie": "^2.1.2",
     "requirejs": "^2.2.0",
     "jquery-store": "^1.0.0",
-    "font-awesome": "Font-Awesome#^4.6.3"
+    "font-awesome": "Font-Awesome#^4.6.3",
+    "fetch": "^2.0.1",
+    "url-search-params": "^0.6.2"
   }
 }

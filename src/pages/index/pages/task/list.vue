@@ -19,7 +19,7 @@
 </template>
 
 <script>
-	var task = require('models/task.model')
+	var task = require('models/task.model').default;
 
 	module.exports = {
 	    name: "task_list",

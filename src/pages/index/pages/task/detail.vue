@@ -48,13 +48,13 @@
 </template>
 
 <script>
-	var task = require('models/task.model')
+	var task = require('models/task.model').default
 
 	module.exports = {
 	    name: "task_detail",
 	    data: function(){
 	        return {
-	            detail: task.default(),
+	            detail: task.defaults(),
 	            state: {
 	                ui: 'static'
 	            },

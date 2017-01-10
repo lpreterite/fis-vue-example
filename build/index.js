@@ -115,6 +115,14 @@ module.exports = function(fis, opts){
             useSprite: true,
             optimizer: fis.plugin('clean-css')
         },
+        balelConf = {
+            presets: [
+                require('babel-preset-es2015'), 
+                require('babel-preset-es2016'), 
+                require('babel-preset-stage-3'),
+                require('babel-preset-react')
+            ]
+        },
         autoprefixer = {
             "browsers":  ["> 5%", "last 2 versions"],
             "cascade": true,
@@ -141,7 +149,7 @@ module.exports = function(fis, opts){
     fis.match('**.js', jsConf);
     fis.match('**.es6',  Object.assign({}, jsConf, {
         rExt: 'js',
-        parser: fis.plugin('babel-6.x')
+        parser: fis.plugin('babel-6.x', balelConf)
     }));
 
     //对所有css文件进行如下处理
@@ -164,7 +172,7 @@ module.exports = function(fis, opts){
         parser: fis.plugin('vue-component')
     });
     fis.match('**.vue:js', {
-        parser: fis.plugin('babel-6.x')
+        parser: fis.plugin('babel-6.x', balelConf)
     });
     fis.match('**.vue:css', cssConf);
     fis.match('**.vue:scss', scssConf);

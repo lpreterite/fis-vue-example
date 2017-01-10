@@ -22,14 +22,14 @@
 </template>
 
 <script>
-    var task = require('models/task.model')
+    var task = require('models/task.model').default;
 
     module.exports = {
         name: "taskItem",
         props: {
             data: {
                 default: function(){
-                    return task.default()
+                    return task.defaults()
                 }
             },
             isNews:{
@@ -71,7 +71,7 @@
                 if(!confirm('确定删除 ' + this.data.title + '吗？')) return;
 
                 task
-                    .delete(this.data.id)
+                    .del(this.data.id)
                     .then(function(){
                         this.$emit('remove', this.data)
                     }.bind(this))
@@ -95,7 +95,7 @@
                 }
             },
             clear: function(){
-                this.data = task.default()
+                this.data = task.defaults()
                 this.title = this.titleHandle
             }
         },
