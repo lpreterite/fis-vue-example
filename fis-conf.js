@@ -1,6 +1,6 @@
 "use strict";
 
-const initFIS = require('./build');
+const initFIS = require('./build'); 
 
 initFIS(fis, {
     output: {
@@ -36,11 +36,7 @@ initFIS(fis, {
             location: '/libs/vue-animated-list',
             main: 'vue-animated-list'
         }],
-        shim: {
-            //[ERROR] Cannot read property 'dirname' of undefined
-            //如出现以上bug，请在shim的key最前加上 '/'，不然会当成已命名的包加载。
-            "/pages/index/main": ['jquery']
-        }
+        shim: {}
     },
     //合并设置
     package: {

@@ -1,14 +1,11 @@
 "use strict";
 
-/**
- * @require libs/normalize-css/normalize.css
- * @require libs/font-awesome/css/font-awesome.css
- */
-
+import '../common';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import route from './route';
 import layout from './pages/common/layout';
+
 
 Vue.config.delimiters = ['{%', '%}'];
 Vue.config.debug = true;
