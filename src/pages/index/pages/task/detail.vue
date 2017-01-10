@@ -96,7 +96,7 @@
 	            if(!confirm('确定删除 ' + this.detail.title + '吗？')) return;
 
 	            task
-	                .delete(this.detail.id)
+	                .del(this.detail.id)
 	                .then(function(){
 	                    this.$route.router.go({name: 'index'})
 	                }.bind(this))

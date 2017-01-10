@@ -1,12 +1,12 @@
 "use strict";
 
-const initFIS = require('./build'); 
+const initFIS = require('./build');
 
 initFIS(fis, {
     output: {
         default: {
             basePath: 'assets',
-            pagePath: 'pages',
+            pagePath: '',
             test: false,
             url: '',
             domain: '',
@@ -20,7 +20,7 @@ initFIS(fis, {
         },
         qa: {
             basePath: 'assets',
-            pagePath: 'pages',
+            pagePath: '',
             test: 'tests',
             url: '',
             domain: '',
@@ -43,12 +43,13 @@ initFIS(fis, {
         output: 'pkg',
         vendor: {
             'vendor.js': [
+                'bluebird',
+                'fetch',
+                'url-search-params',
                 'js-cookie',
                 'vue',
                 'vue-router',
                 'vue-animated-list',
-                'jquery',
-                'promise',
             ],
             'config.js': ['config/config']
         },

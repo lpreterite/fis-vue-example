@@ -88,7 +88,6 @@ module.exports = function(fis, opts){
         url: path.posix.join('/', defaultConf.basePath, defaultConf.url) + '$&' //改变引用地址
     });
 
-
     //设定产出页面目录
     fis.match(conf.input, {
         release: path.posix.join(defaultConf.pagePath, "$1")
@@ -257,7 +256,7 @@ module.exports = function(fis, opts){
     //debug模式下的js、scss、css不进行压缩，文件名不添加hash值，文件不进行打包压缩
     //debug模式产出到本地服务器进行测试
     
-    const debugConf = conf.output.debug;
+    const debugConf = conf.output.debug ? conf.output.debug : defaultConf;
     fis.media('debug').match('**',{
         release: path.posix.join(debugConf.basePath, '$0'),
         domain: debugConf.domain,
@@ -291,7 +290,7 @@ module.exports = function(fis, opts){
     });
 
     /**+++++++++++ qa 模式的设定 +++++++++++**/
-    const qaConf = conf.output.qa;
+    const qaConf = conf.output.qa ? conf.output.qa : defaultConf;
     fis.media('qa').match('**',{
         release: path.posix.join(qaConf.basePath, '$0'),
         domain: qaConf.domain,
